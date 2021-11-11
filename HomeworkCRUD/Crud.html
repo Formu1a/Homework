@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" >
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD</title>
+</head>
+<body>
+    <body>
+        <div >
+            <div >
+                <input id="userName"  type="text" value="DefName">
+                <p >Name</p>
+                <input id="userId"  type="text" value="0">
+                <p >ID</p>
+                <input id="comp"  type="text" value="non">
+                <p >completed?(YES/NO)</p>
+                <button  id="button" onclick="render(List,cObject())">Create</button>
+            </div>
+            <div >
+                <p >Sort by:</p>
+                <select id="sort">
+                    <option  data-id="id" data-pozit="min" >id-- MIN</option>
+                    <option  data-id="id" data-pozit="max" >id-- MAX</option>
+                    <option  data-id="comp" data-pozit="yes" >First Comp YES</option>
+                    <option  data-id="comp" data-pozit="no" >First Comp NO</option>
+                </select>
+                <button id="Sbutton"  onclick="sort()" >Sort</button>
+            </div>
+        </div>
+        <div id="list">
+        </div>
+        <script>
+const Name = document.getElementById('userName');
+const Id = document.getElementById('userId');
+const Comp = document.getElementById('comp');
+const Button = document.getElementById('button');
+const ListOut = document.getElementById('list');
+let List = [];
+
+
+function cObject() {
+    let object = {};
+    object['Name'] = Name.value;
+    object['Id'] = Id.value;
+    object['Comp'] = Comp.value;
+
+    List.push(object);
+}
+
+function del(i) {
+    let taska = List.filter((el) => Number(el.Id) !== i);
+    List = taska;
+    render(List)
+}
+
+
+function render(mas, cObj) {
+    let str = '';
+
+    for (let i = 0; i < mas.length; i++) {
+        str += `<div class="task-box">
+                    <p>user name: ${mas[i].Name}</p>
+                    <p>user id: ${mas[i].Id}</p>
+                    <p>completed: ${mas[i].Comp}</p>
+                    <button class="delete-button" onclick = "del(${mas[i].Id})">удалить</button>
+                </div>`
+    }
+
+    ListOut.innerHTML = str;
+}
+function sort() {
+    const sel = document.getElementById('sort');
+    const parms = sel.options[sel.selectedIndex];
+
+    function sortProcess(id, pozit) {
+        if (pozit === 'max') {
+            return (a, b) => a[id] > b[id] ? 1 : -1
+        }
+        if (pozit === 'min') {
+            return (a, b) => a[id] > b[id] ? 1 : -1
+        }
+        if (pozit === 'yes'){
+            return (a, b) => a[id] < b[id] ? 1 : -1
+        }
+        if (pozit === 'no') {
+            return (a, b) => a[id] > b[id] ? 1 : -1
+        }
+    }
+
+    List.sort(sortProcess(parms.dataset.id, parms.dataset.pozit));
+    render(List)
+}
+
+
+        </script>
+</body>
+</html>
