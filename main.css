@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+body {
+  margin: 0;
+  font-family: "Press Start 2P", cursive;
+  background: url(4.jpg);
+  background-repeat: repeat;
+}
+
+.midle {
+  text-align: center;
+}
+
+.hedtext {
+  color: beige;
+  padding-top: 250px;
+  font-size: 70px;
+  background: url(1.jpeg);
+  color: transparent;
+  -webkit-background-clip: text;
+  animation: anim 15s infinite ease-in-out;
+  text-align: center;
+}
+
+.logo {
+  text-align: left;
+  color: beige;
+  padding-top: 25px;
+  padding-left: 65px;
+  background: url(1.jpeg);
+  color: transparent;
+  -webkit-background-clip: text;
+  animation: anim 15s infinite ease-in-out;
+}
+
+#clock {
+  color: beige;
+  padding-top: 47px;
+  font-size: 70px;
+  background: url(1.jpeg);
+  color: transparent;
+  -webkit-background-clip: text;
+  animation: anim 15s infinite ease-in-out;
+  text-align: center;
+}
+
+#int::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to top, #000000, transparent);
+  z-index: 1000;
+}
+
+.grid {
+  color: rgb(43, 255, 0);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+.grid > div.pup {
+  color: rgb(204, 0, 255);
+  text-align: center;
+  border-radius: 25px;
+  background: url(41.jpg);
+
+  animation: anim 15s infinite ease-in-out;
+}
+.grid > div.mod {
+  text-align: center;
+  border-radius: 25px;
+  background: url(42.jpg);
+
+  animation: anim 15s infinite ease-in-out;
+}
+
+.grid > div.grey {
+  color: rgb(0, 4, 255);
+  text-align: center;
+  border-radius: 25px;
+  background: url(45.jpg);
+
+  animation: anim 2s infinite ease-in-out;
+}
+
+button {
+  height: 40px;
+  width: 200px;
+  border-radius: 25px;
+  text-decoration: none;
+  text-transform: uppercase;
+  position: relative;
+
+  padding: 1em 2em;
+  color: #fff;
+  font-size: 1rem;
+  background-color: inherit;
+}
+
+button::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -0.125em;
+  left: -0.125em;
+  width: calc(100% + 0.25em);
+  height: calc(100% + 0.25em);
+  border-radius: 0.25em;
+  background-image: linear-gradient(
+    45deg,
+    #f79533,
+    #f37055,
+    #ef4e7b,
+    #a166ab,
+    #5073b8,
+    #1098ad,
+    #07b39b,
+    #6fba82
+  );
+  background-size: 200%;
+  animation: animateborder 3s ease infinite paused;
+}
+
+button:hover::after {
+  animation-play-state: running;
+}
+
+@keyframes animateborder {
+  0% {
+    background-position: 0%;
+  }
+  50% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: 0%;
+  }
+}
+@keyframes anim {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 100%;
+  }
+}
