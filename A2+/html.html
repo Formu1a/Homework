@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milgram</title>
+</head>
+<body>
+    
+    <h2>Press F12(CONSOLE)</h2>
+
+
+    <script>
+
+        let str = prompt("WRITE!!!");
+
+                        //Первый вариант//
+        //===============================================//
+        // function trim(str) {
+        //     let res = "";
+        //         res = str.replace(/[^\w\s]|_/g,"")
+        //             .replace(/\s+/g, "");
+        //     return res
+        //}
+
+
+
+                        //Второй вариант//
+        //===============================================//
+        // function trim(str) {
+        //     let res = "";
+        //         res = str.replaceAll(" ","*")
+        //     return res
+        // }
+
+
+                        //Третий вариант//
+        //===============================================//
+        function trim(str) {
+            let res = "";
+            res = str.replace(/\s+/g,' ')
+                .replace(/^\s/,'')
+                .replace(/\s$/,'');
+            return res;
+        }
+
+
+        console.log(trim(str))
+
+
+
+    </script>
+</body>
+</html>
