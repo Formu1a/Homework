@@ -9,6 +9,8 @@
 <body>
     
     <h2>Press F12(CONSOLE)</h2>
+    <br>
+    <h2>Решил 4-мя вариантами(коменты в коде)</h2>
 
 
     <script>
@@ -37,16 +39,20 @@
 
                         //Третий вариант//
         //===============================================//
-        function trim(str) {
-            let res = "";
-            res = str.replace(/\s+/g,' ')
-                .replace(/^\s/,'')
-                .replace(/\s$/,'');
-            return res;
-        }
+        // function trim(str) {
+        //     let res = "";
+        //     res = str.replace(/\s+/g,' ')
+        //         .replace(/^\s/,'')
+        //         .replace(/\s$/,'');
+        //     return res;
+        // }
 
-
-        console.log(trim(str))
+                        //Четвертый вариант//
+        //===============================================//
+            function trim() {
+                return  str.split(" ").join("*");
+            }
+            console.log(trim(str))
 
 
 
