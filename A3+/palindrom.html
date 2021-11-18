@@ -9,16 +9,16 @@
 <body>
     
     <H2>Нажмите F12 для проверки ДЗ(Console)</H2>
-
-
+    
     <script>
 
         let str = prompt("WRITE!!!");
-        function pal (){
-            let b = str.replace(/[ё,Ë]/g,"е").replace(/[ъ,Ъ]/g,"ь").replace(/\s/g,"").toLowerCase();
-            return b == b.split('').reverse().join('');
-        }
-        console.log(pal(str))
+            function palindrome (){
+                let CorrectString = str.replace(/[ё,Ë]/g,"е").replace(/[ъ,Ъ]/g,"ь").replace(/\s/g,"").toLowerCase();
+                    return CorrectString == CorrectString.split('').reverse().join('');
+        };
+
+    console.log(palindrome(str))
     </script>
 </body>
 </html>
