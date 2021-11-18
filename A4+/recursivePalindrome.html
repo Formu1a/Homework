@@ -14,7 +14,7 @@
     <script>
         let str = prompt("WRITE!!!");
             const recursivePalindrome = (s) => {
-                let CorrectString = s.replace(/[ё,Ë]/g,"е").replace(/[ъ,Ъ]/g,"ь").replace(/\s/g,"").toLowerCase();
+                let CorrectString = s.replace(/[Ë]/g,"е").replace(/[Ъ]/g,"ь").toLowerCase().replace(/[ё]/g,"е").replace(/[ъ]/g,"ь").replace(/\s/g,"");
                     const strLength = CorrectString.length;
                     if (strLength < 2) return true;
 

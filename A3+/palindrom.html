@@ -14,7 +14,7 @@
 
         let str = prompt("WRITE!!!");
             function palindrome (){
-                let CorrectString = str.replace(/[ё,Ë]/g,"е").replace(/[ъ,Ъ]/g,"ь").replace(/\s/g,"").toLowerCase();
+                let CorrectString = str.replace(/[Ë]/g,"е").replace(/[Ъ]/g,"ь").toLowerCase().replace(/[ё]/g,"е").replace(/[ъ]/g,"ь").replace(/\s/g,"");
                     return CorrectString == CorrectString.split('').reverse().join('');
         };
 
