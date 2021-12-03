@@ -21,7 +21,7 @@ function squareRoots(a,b,c) {
     var d=b*b-4*a*c; // дискриминант
 
     if(a == 0){
-        return false    // <----- ДОБАВИЛ ПРОВЕРКУ !!!!
+        return [ b/c ]    // <----- ДОБАВИЛ ПРОВЕРКУ !!!!
     }
 
     if ( d<0 )
