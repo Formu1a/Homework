@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>h1</h1>
+    <div id="formH1">
+        <input type="text" name="text" placeholder="text">
+        <input type="text" name="prop" placeholder="prop">
+        <input type="text" name="value" placeholder="value">
+        <button onclick="createH1()">конопка</button>
+    </div>
+
+    <p>P</p>
+    <div id="formP">
+        <input type="text" name="text" placeholder="text">
+        <input type="text" name="prop" placeholder="prop">
+        <input type="text" name="prop" placeholder="value">
+        <button onclick="createP()">конопка</button>
+    </div>
+    <br>
+    <H1>Li</H1>
+    <div id="Ul">
+        <button onclick="createLi()">Создать поле для ввода данных</button>
+        <button onclick="createUl()">Push данных</button>
+        <div id="uls">
+            
+        </div>
+        
+    </div>
+
+
+
+    <script>
+        function createH1() {
+            const blockH1=document.getElementById("formH1")
+            const h1Props = {}
+                for(let inp of blockH1.children){
+                    h1Props[inp.name]= inp.value
+                }
+                    const createdE1 = document.createElement("h1")
+                    const body = document.getElementsByTagName('body');
+                        body[0].appendChild(createdE1);
+                        createdE1.style[h1Props.prop] = h1Props.value;
+                        createdE1.innerText = h1Props.text;
+        }
+
+        function createP() {
+            const blockH1=document.getElementById("formP")
+            const h1Props = {}
+                for(let inp of blockH1.children){
+                    h1Props[inp.name]= inp.value
+                }
+                    const createdE1 = document.createElement("p")
+                    const body = document.getElementsByTagName('body');
+                        body[0].appendChild(createdE1);
+                        createdE1.style[h1Props.prop] = h1Props.value;
+                        createdE1.innerText = h1Props.text;
+        }
+    function createLi() {
+        let ul = document.getElementById("uls")
+        let div = document.createElement("div")
+        div.className = "lishki"
+        let text = document.createElement('label')
+        text.textContent = ' text '
+        let style = document.createElement('label')
+        style.textContent = ' style '
+        let value = document.createElement('label')
+        value.textContent = ' value '
+            let inputText = document.createElement("input")
+            inputText.name = "text"
+            let inputSt= document.createElement("input")
+            inputSt.name = "style"
+            let inputValue = document.createElement("input")
+            inputValue.name = "value"
+                div.appendChild(inputText)
+                div.appendChild(text)
+                div.appendChild(inputSt)
+                div.appendChild(style)
+                div.appendChild(inputValue)
+                div.appendChild(value)
+                ul.appendChild(div)
+}
+
+function createUl() {
+    let getLi = document.querySelectorAll(".lishki")
+        getLi.forEach(e => {
+            let text = e.querySelector("input[name='text']")
+            let st = e.querySelector("input[name='style']")
+            let value = e.querySelector("input[name='value']")
+        
+            let li = document.createElement('li')
+                li.textContent = text.value
+                li.style[st.value] = value.value
+
+                text.value = "";
+                st.value = "";
+                value.value = "";
+
+                    document.getElementById('Ul').appendChild(li)
+    });
+}
+
+
+    </script>
+</body>
+</html>
