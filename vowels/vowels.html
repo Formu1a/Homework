@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        let str =  prompt("Введите текст с гласными буквами !!!");
+            function vowels(str){
+                var letters = 'аоэиуыеёюя';
+                let counter = 0;
+                let strCase=str.toLowerCase();
+                    for (let i = 0; i < strCase.length; i++) 
+                        for (let k = 0; k < letters.length; k++) 
+                            if(letters.charAt(k) === strCase.charAt(i))counter++;
+                            
+                    return counter;
+        
+        }
+        console.log(vowels(str))
+
+    </script>
+</body>
+</html>
