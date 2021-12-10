@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./store.css">
+    <title>Drink</title>
+</head>
+<body>
+    
+    <form>
+        <input class="floating-button" type="button" value="Ввод информации о напитке" onclick="clickGetValue()"> <span style="font-size: 50px;">&#127865</span>
+        <br>
+        <input class="floating-button" type="button" value="Получение информации о напитке" onclick="clickInfoValue()"><span style="font-size: 50px;">&#128190</span>
+        <br>
+        <input class="floating-button" type="button" value="Удаление информации о напитке" onclick="clickDeleteValue()"><span style="font-size: 50px;">&#128219</span>
+        <br>
+        <input  class="floating-button" type="button" value="Перечень всех напитков " onclick="clickGetKeys()"><span style="font-size: 50px;">&#128214</span>
+    </form>
+
+
+
+    <script>
+
+        class HashStorageFunc {
+            constructor(){
+                this.storage = {}
+                
+            }
+                addValue(key,value){
+                    this.storage[key]=value
+                }
+                getValue(key){
+                    return this.storage[key]
+                }
+                deleteValue(key){
+                    if(key in this.storage){
+                        delete this.storage[key]
+                        return true
+                    }
+                    else {
+                        return false
+                    }
+                }
+                getKeys(){
+                    return Object.keys(this.storage)
+                }
+        }
+
+
+
+        let drinkStorage = new HashStorageFunc();
+            function clickGetValue (){
+                let name = prompt("Название напитка")
+                let alcogol = prompt("Напиток алкогольный (да/нет) ?")
+                let recept = prompt("Рецепт данного напитка")
+
+                    drinkStorage.addValue(name,{alc:alcogol,rec:recept})
+        }
+
+
+
+        function clickInfoValue(){
+            let name = prompt("Название напитка по которому хотите получить информацию")
+            let store = (drinkStorage.getValue(name))
+                if(store){
+                    let aclo = "Алкогольный или безалкогольный: "
+                    let rec = "Рецепт: "
+                    alert("Название: "+name+ "\n"+aclo+store.alc+"\n"+rec+store.rec)
+                }
+                else {
+                alert(store);
+                }
+        }
+
+
+
+        function clickDeleteValue (){
+            let name = prompt("Название напитка который хотите удалить")
+                alert(drinkStorage.deleteValue(name))
+        }
+
+
+
+        function clickGetKeys(){
+            alert(drinkStorage.getKeys(name))
+        }
+
+    </script>
+</body>
+</html>
